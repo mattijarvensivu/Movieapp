@@ -33,8 +33,7 @@ namespace MovieApp.Controllers
 
         public MovieController ()
         {
-            //suositellut.Clear();
-            //suositellutleffaid.Clear();
+           
             using (StreamReader reader = new StreamReader(@"C:\Matin\MovieApp\MovieApp\MovieApp\u.item"))
             {
                 var lineCount = File.ReadLines(@"C:\Matin\MovieApp\MovieApp\MovieApp\u.item").Count();
@@ -79,8 +78,8 @@ namespace MovieApp.Controllers
         [ResponseType(typeof(UserRatings))]
         public HttpResponseMessage PostMovie(UserRatings Omaarvostelu)
         {
-            
-   
+
+          
             List<User> kaikkiarviot = new List<User>();
             
             User self = new User();

@@ -37,7 +37,8 @@ namespace MovieApp.Controllers
                         int movieid = int.Parse(singlereview["Movieids"]);
                         int userrating = int.Parse(singlereview["Userratings"]);
                         bool loytyi = false;
-                      
+                      //virhe. Ei jostain syystä laita kaikki arvionteja, joten yhdellä henkilöllä ei välttämättä ole 10+ arvostelua
+                      //tämä aiheuttaa virheen
                         for (int j = 0; j < allusers.Count; j++)
                         {
                             if (userid == allusers[j].Userid)
@@ -68,10 +69,6 @@ namespace MovieApp.Controllers
             }
 
         }
-
-
-       
-        
 
             [NonAction]
         private static Dictionary<string, string> ParseMovieData(string raw)

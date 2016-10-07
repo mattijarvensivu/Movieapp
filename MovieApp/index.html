@@ -64,13 +64,7 @@
     
     var movieids = [];
     var reviewids = [];
-    $(document).ready(function () {
-        $.getJSON(uri2)
-            .done(function (data) {
-
-            });
-
-    });
+  
         //Napin painallus
         $(document).on("click", "#sendreviews", function(e) {
             // estää että sivu ei päivitä itseään
@@ -139,6 +133,13 @@
 
               });
           });
+        $(document).ready(function () {
+            $.getJSON(uri2)
+                .done(function (data) {
+
+                });
+
+        });
     });
 
      
