@@ -29,6 +29,7 @@ namespace MovieApp.Controllers
         Movie[] suositellutleffat = new Movie[30];
         List<User> suositellut = new List<User>();
         List<int> suositellutleffaid = new List<int>();
+        AllRatings kaikkiarvostelut = new AllRatings();
 
 
         public MovieController ()
@@ -97,8 +98,8 @@ namespace MovieApp.Controllers
            self.SortArvostelut();
 
             double cossim = 0;
-
-            kaikkiarviot = AllRatingsController.Kaikkiarviot();
+            
+            kaikkiarviot = kaikkiarvostelut.HaeKaikkiUsers();
             
            
             for (int j=0; j < kaikkiarviot.Count; j++)

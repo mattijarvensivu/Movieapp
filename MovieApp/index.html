@@ -46,10 +46,7 @@
     </table>
 </div>
        <!-- <input id="rating-system" type="number" class="rating" min="1" max="5" step="1">-->
-
-
 <div>
-   
     <h2 class="display-3">Hae id:n mukaan</h2>
     <input type="text" id="prodId" size="5"/>
     <input type="button" value="Search" onclick="find();"/>
@@ -60,7 +57,7 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
         var uri = 'api/movie';
-        var uri2 = 'api/AllRatings';
+      
     
     var movieids = [];
     var reviewids = [];
@@ -75,8 +72,6 @@
                 .map(function() { return $(this).val(); }).get();
  
             // Alkaa hakemaan kaikki tiedot
-         
-
 
             $(function () {
                 //Tieto tallennetaan muuttujaan
@@ -93,7 +88,7 @@
                     success: function(data) {
 
                         $.each(data, function(key, itemi) {
-                            console.log("URI3!!!");
+                           
                             // Add a list item for the product.
                             var html = '<tr>';
                             html += '<td>' + (itemi.Id) + '</td>' + '<td>'
@@ -109,7 +104,7 @@
         
 
          });
-       
+  
  
     $(document).ready(function () {
       //ajax
@@ -123,27 +118,22 @@
                   var html = '<tr>';
                   html += '<td>' + (item.Id) + '</td>' + '<td>'
                       + (item.Name) + '</td>' + '<td>' + (item.Year) +
-                      '</td>' + '<td>' + "<input name='rating' id= "+ (item.Id) + "class='test' type='number' min='1' max='5' step='1'>" + '</td>' + '</tr>';
+                      '</td>' + '<td>' +"<input class='rating' type='number' min='1' max='5' step='1'>" + '</td>' + '</tr>';
 
                   //lisätään leffaid
                   movieids.push(item.Id);
                   
 
-                  $("#movies").append(html);
+                  $("#movies").append(html).trigger('create');
 
               });
           });
-        $(document).ready(function () {
-            $.getJSON(uri2)
-                .done(function (data) {
-
-                });
-
-        });
     });
 
      
-
+        function getinput() {
+            return "$('input type=number').addClass('rating')";
+        }
 
     function formatItem(item) {
         return item.Id +": "+ item.Name + ' (' + item.Year + ')';
